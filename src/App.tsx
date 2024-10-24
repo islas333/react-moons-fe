@@ -72,6 +72,7 @@ function App() {
 
   useEffect(() => {
     cargaInicial();
+    console.log('cargaInicial');
   }, []);
 
   useEffect(() => {
