@@ -43,25 +43,25 @@ const Filter = ({ countries, centerTypes, services, onCountryChange, onCenterTyp
   };
 
   return (
-    <div className="flex gap-4 mt-4">
+    <div className="flex flex-col gap-4 mt-4 md:flex-row">
       <Autocomplete
         disablePortal
         options={countries}
-        sx={{ width: 300 }}
+        sx={{ width: '100%', maxWidth: 300 }}
         onChange={(event, value) => handleCountryChange(value)}
         renderInput={(params) => <TextField {...params} label="Selecciona Pais" />}
       />
       <Autocomplete
         disablePortal
         options={centerTypes}
-        sx={{ width: 300 }}
+        sx={{ width: '100%', maxWidth: 300 }}
         onChange={(event, value) => handleCenterTypeChange(value)}
         renderInput={(params) => <TextField {...params} label="Tipo de centro" />}
       />
       <Autocomplete
         disablePortal
         options={services}
-        sx={{ width: 300 }}
+        sx={{ width: '100%', maxWidth: 300 }}
         onChange={(event, value) => handleServicesChange(value)}
         renderInput={(params) => <TextField {...params} label="Servicios" />}
       />
