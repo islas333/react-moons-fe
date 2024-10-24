@@ -59,15 +59,25 @@ const CardComponent = ({ listaCentros }: { listaCentros: allSmileCenters[] }) =>
                   <p className='text-xs text-gray-400'>{center.Apointment_Type_Id ? `ATI: ${center.Apointment_Type_Id}` : ""}</p>
                   <p className='text-xs text-gray-400'>{center.Timetable ? `L-V ${center.Timetable.weekdays} / S ${center.Timetable.saturday}` : ""}</p>
                   {Object.keys(center.Services).length > 0 && (
-                    <Tooltip title={
-                      <React.Fragment>
+                    <>
+                      <div className="hidden md:block">
+                        <Tooltip title={
+                          <React.Fragment>
+                            {Object.keys(center.Services).map((key) => (
+                              <p key={key} className='text-sm'>{key}</p>
+                            ))}
+                          </React.Fragment>
+                        }>
+                          <p className='text-xs text-blue-600'>Ver Servicios</p>
+                        </Tooltip>
+                      </div>
+                      <div className="block md:hidden bg-gray-100 pt-4 pb-4 w-40 rounded">
+                        <p className='text-xs text-blue-600'>Servicios</p>
                         {Object.keys(center.Services).map((key) => (
-                          <p key={key} className='text-sm'>{key}</p>
+                          <p key={key} className='text-xs'>{key}</p>
                         ))}
-                      </React.Fragment>
-                    }>
-                      <p className='text-xs text-blue-600'>Ver Servicios</p>
-                    </Tooltip>
+                      </div>
+                    </>
                   )}
                 </article>
               </div>
